@@ -1,0 +1,33 @@
+/**
+ * ANVIL BADGES
+ * "The Insignia" - Small status markers.
+ */
+
+.nvl-badge {
+  display: inline-block;
+  padding: 0.35em 0.65em;
+  font-size: 0.75em;
+  font-weight: 700;
+  line-height: 1;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: 4px; // Sedikit kotak biar tegas
+  text-transform: uppercase;
+
+  // Variant Pill (Bulat sempurna)
+  &.nvl-badge-pill {
+    border-radius: 50rem;
+    padding-right: 0.85em;
+    padding-left: 0.85em;
+  }
+}
+
+// Loop Warna Otomatis (Gunakan map yang sudah ada di utilities)
+@each $name, $color in $utilities-colors {
+  .nvl-badge-#{$name} {
+    background-color: $color;
+    color: nvl-contrast($color);
+  }
+}

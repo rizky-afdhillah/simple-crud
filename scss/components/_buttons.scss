@@ -1,0 +1,74 @@
+/**
+ * ANVIL BUTTONS
+ * "Small Blades" - Essential tools for user interaction.
+ */
+
+// 1. Base Button Style
+.nvl-btn {
+  display: inline-block;
+  font-family: $nvl-font-main;
+  font-weight: 600;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  user-select: none;
+  background-color: transparent;
+  border: 1px solid transparent;
+  padding: $nvl-spacer-sm $nvl-spacer;
+  font-size: 1rem;
+  border-radius: $nvl-radius;
+  @include nvl-transition; // Mixin
+
+  &:hover {
+    filter: brightness(90%); // Otomatis menggelapkan sedikit saat hover
+    text-decoration: none;
+  }
+
+  &:active {
+    transform: translateY(1px); // Efek menekan tombol
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+// 2. Button Variations (The Power of Sass Maps)
+// Map $var color dari _variable
+$btn-colors: (
+  "primary":   $nvl-primary,
+  "secondary": $nvl-secondary,
+  "success":   $nvl-success,
+  "warning":   $nvl-warning,
+  "danger":    $nvl-danger,
+  "info":      $nvl-info,
+  "accent":    $nvl-accent,
+  "dark":      $nvl-dark
+);
+
+@each $name, $color in $btn-colors {
+  .nvl-btn-#{$name} {
+    background-color: $color;
+    border-color: $color;
+    color: $nvl-white;
+
+    &:hover {
+      background-color: darken($color, 5%);
+      border-color: darken($color, 5%);
+      color: $nvl-white;
+    }
+  }
+
+  // Outline Version (Modern Look)
+  .nvl-btn-outline-#{$name} {
+    background-color: transparent;
+    border-color: $color;
+    color: $color;
+
+    &:hover {
+      background-color: $color;
+      color: $nvl-white;
+    }
+  }
+}

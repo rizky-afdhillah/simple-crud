@@ -1,0 +1,36 @@
+/**
+ * ANVIL ALERTS
+ * "The Messenger" - Status notifications.
+ */
+
+.nvl-alert {
+  position: relative;
+  padding: 1rem 1.25rem;
+  margin-bottom: 1rem;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  // Tombol tutup (X) di dalam alert
+  .nvl-alert-close {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    opacity: 0.5;
+    &:hover { opacity: 1; }
+  }
+}
+
+// Loop Warna Otomatis (Gunakan map warna yang sudah ada)
+@each $name, $color in $utilities-colors {
+  .nvl-alert-#{$name} {
+    background-color: rgba($color, 0.1); // Warna background sangat muda
+    border-color: rgba($color, 0.2);
+    color: darken($color, 15%); // Teks lebih gelap agar terbaca
+    
+    .nvl-alert-close { color: darken($color, 15%); }
+  }
+}

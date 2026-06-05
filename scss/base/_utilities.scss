@@ -1,0 +1,107 @@
+/**
+ * ANVIL UTILITIES
+ * "The Finishing Touches" - Generating color and spacing helpers.
+ */
+
+// 1. Map untuk loop Warna
+$utilities-colors: (
+  "primary":   $nvl-primary,
+  "secondary": $nvl-secondary,
+  "success":   $nvl-success,
+  "warning":   $nvl-warning,
+  "danger":    $nvl-danger,
+  "info":      $nvl-info,
+  "accent":    $nvl-accent,
+  "dark":      $nvl-dark,
+  "light":     $nvl-light,
+  "white":     #ffffff
+);
+
+// 2. Loop Color Utilities (Background & Text)
+@each $name, $color in $utilities-colors {
+  .nvl-bg-#{$name} {
+    background-color: $color !important;
+    color: nvl-contrast($color) !important;
+
+    h1, h2, h3, h4, h5, h6, p, small, i, span {
+      color: nvl-contrast($color);
+    }
+  }
+
+  .nvl-text-#{$name} {
+    color: $color !important;
+  }
+}
+
+// 3. Dynamic Spacing Utilities (1-5)
+// Kita buat map untuk menentukan besaran jaraknya
+$nvl-spacers: (
+  0: 0,
+  1: ($nvl-spacer * 0.25), // 4px
+  2: ($nvl-spacer * 0.5),  // 8px
+  3: $nvl-spacer,          // 16px
+  4: ($nvl-spacer * 1.5),  // 24px
+  5: ($nvl-spacer * 3)     // 48px
+);
+
+@each $i, $value in $nvl-spacers {
+  // Margin Helpers
+  .nvl-m-#{$i}  { margin: $value !important; }
+  .nvl-mt-#{$i} { margin-top: $value !important; }
+  .nvl-mb-#{$i} { margin-bottom: $value !important; }
+  .nvl-ms-#{$i} { margin-left: $value !important; } // Start (Left)
+  .nvl-me-#{$i} { margin-right: $value !important; } // End (Right)
+  .nvl-mx-#{$i} { margin-left: $value !important; margin-right: $value !important; }
+  .nvl-my-#{$i} { margin-top: $value !important; margin-bottom: $value !important; }
+
+  // Padding Helpers
+  .nvl-p-#{$i}  { padding: $value !important; }
+  .nvl-pt-#{$i} { padding-top: $value !important; }
+  .nvl-pb-#{$i} { padding-bottom: $value !important; }
+  .nvl-ps-#{$i} { padding-left: $value !important; }
+  .nvl-pe-#{$i} { padding-right: $value !important; }
+  .nvl-px-#{$i} { padding-left: $value !important; padding-right: $value !important; }
+  .nvl-py-#{$i} { padding-top: $value !important; padding-bottom: $value !important; }
+}
+
+// 4. Flexbox & Layout Helpers
+.nvl-flex-gap {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.nvl-border-bottom {
+  border-bottom: 1px solid rgba($nvl-dark, 0.1);
+}
+
+.nvl-bold { font-weight: 700; }
+.nvl-uppercase { text-transform: uppercase; letter-spacing: 1px; }
+
+.nvl-d-flex { display: flex !important; }
+
+.nvl-flex-column { 
+  display: flex !important;
+  flex-direction: column !important; 
+}
+
+.nvl-flex-row { 
+  display: flex !important;
+  flex-direction: row !important; 
+}
+
+.nvl-flex-wrap { flex-wrap: wrap !important; }
+
+// Alignment Helpers
+.nvl-justify-between { justify-content: space-between !important; }
+.nvl-justify-center  { justify-content: center !important; }
+.nvl-align-center    { align-items: center !important; }
+
+.nvl-flex-gap {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+// Tambahkan ini juga biar teks di tengah container
+.nvl-text-center { text-align: center !important; }

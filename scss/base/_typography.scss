@@ -1,0 +1,82 @@
+/**
+ * ANVIL TYPOGRAPHY
+ * "The Engraving" - Defining the visual hierarchy of the forge.
+ */
+
+// --- 1. BASE HEADINGS ---
+h1, h2, h3, h4, h5, h6 {
+  font-family: $nvl-font-main;
+  color: $nvl-primary; 
+  font-weight: 700;    
+  line-height: 1.2;
+  margin-bottom: $nvl-spacer;
+}
+
+// Typography Scale
+h1 { font-size: 2.5rem;   } // 40px
+h2 { font-size: 2rem;     } // 32px
+h3 { font-size: 1.75rem;  } // 28px
+h4 { font-size: 1.5rem;   } // 24px
+h5 { font-size: 1.25rem;  } // 20px
+h6 { font-size: 1rem;     } // 16px
+
+// --- 2. BODY TEXT & SPAN ---
+p {
+  margin-bottom: $nvl-spacer;
+  font-weight: 400;
+  color: $nvl-dark;
+  
+  &.nvl-lead {
+    font-size: 1.25rem;
+    font-weight: 300;
+  }
+}
+
+span {
+  font-weight: 400;
+  color: $nvl-dark;
+}
+
+// --- 3. LINKS ---
+a {
+  color: $nvl-primary;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    opacity: 0.8;
+    text-decoration: underline;
+  }
+}
+
+// --- 4. RESPONSIVE TYPOGRAPHY ---
+@include nvl-mq-up(md) {
+  h1 { font-size: 3.5rem; }
+  h2 { font-size: 2.5rem; }
+}
+
+// --- 5. HELPERS (Alignment, Transform, & Truncate) ---
+.nvl-text-center  { text-align: center !important; }
+.nvl-text-right   { text-align: right !important;  }
+.nvl-text-left    { text-align: left !important;   }
+.nvl-text-justify { text-align: justify !important; }
+
+.nvl-uppercase    { text-transform: uppercase; letter-spacing: 1px; }
+.nvl-lowercase    { text-transform: lowercase; }
+.nvl-capitalize   { text-transform: capitalize; }
+
+.nvl-bold         { font-weight: 700 !important; }
+.nvl-italic       { font-style: italic !important; }
+
+// Penyelamat Layout (Memotong teks jadi ...)
+.nvl-text-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+// Memaksa URL panjang pecah ke bawah
+.nvl-text-break {
+  word-wrap: break-word !important;
+  word-break: break-word !important;
+}

@@ -1,0 +1,129 @@
+/**
+ * ANVIL NAVBAR
+ * "The Compass" - Navigating the forge.
+ */
+
+.nvl-navbar {
+  display: flex;
+  align-items: center;
+  padding: 1rem 0;
+  background-color: #ffffff;
+  position: relative;
+  z-index: 1000;
+  border-bottom: 1px solid rgba($nvl-dark, 0.05);
+
+  .nvl-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+}
+
+// Brand/Logo
+.nvl-nav-brand {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: $nvl-primary;
+  text-decoration: none;
+  z-index: 1001; // Tetap di atas saat menu open
+}
+
+// Nav Links (Desktop)
+.nvl-nav-links {
+  display: none; // Default hidden (mobile-first)
+  gap: 2rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  a {
+    color: $nvl-dark;
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: color 0.3s;
+    &:hover { color: $nvl-primary; text-decoration: none; }
+  }
+
+  @include nvl-mq-up(lg) {
+    display: flex;
+  }
+}
+
+// --- VARIANT 2: LOGO CENTER ---
+.nvl-nav-center {
+  flex-direction: column;
+  .nvl-nav-brand { margin-bottom: 1rem; }
+  .nvl-nav-links { justify-content: center; width: 100%; }
+}
+
+// --- VARIANT 3 & MOBILE: BURGER BUTTON ---
+.nvl-nav-burger {
+  cursor: pointer;
+  z-index: 1001;
+  background: none;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+
+  span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: $nvl-dark;
+    transition: 0.3s;
+  }
+
+  @include nvl-mq-up(lg) {
+    // Hidden di desktop untuk model 1 & 2, tapi muncul di model 3
+    &.nvl-force-burger { display: flex; }
+    &:not(.nvl-force-burger) { display: none; }
+  }
+}
+
+// --- FULL SCREEN MENU OVERLAY ---
+.nvl-nav-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: $nvl-primary;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.4s ease-in-out;
+  z-index: 1001;
+  cursor: default;
+
+  .nvl-nav-links {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    gap: 2rem;
+    cursor: default;
+    a {
+      color: #fff;
+      font-size: 2rem;
+      font-weight: 700;
+    }
+  }
+  .nvl-nav-close {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    font-size: 3rem;
+    color: #fff;
+    line-height: 1;
+    cursor: pointer;
+  }
+
+  &.is-active {
+    opacity: 1;
+    visibility: visible;
+  }
+}

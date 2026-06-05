@@ -1,0 +1,44 @@
+.nvl-pagination {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  gap: 8px;
+  align-items: center;
+
+  .nvl-page-item {
+    .nvl-page-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 38px;
+      height: 38px;
+      padding: 0 5px;
+      color: $nvl-dark;
+      background: #fff;
+      border: 1px solid rgba($nvl-dark, 0.1);
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: all 0.2s;
+    }
+
+    &:hover:not(.is-disabled, .is-active) .nvl-page-link {
+      background: $nvl-light;
+    }
+
+    &.is-active .nvl-page-link {
+      background: $nvl-primary;
+      color: #fff;
+      border-color: $nvl-primary;
+      font-weight: 700;
+    }
+
+    &.is-disabled .nvl-page-link {
+      color: #ccc;
+      cursor: not-allowed;
+      border-color: transparent;
+      background: transparent;
+    }
+  }
+}

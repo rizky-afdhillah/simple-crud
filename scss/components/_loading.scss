@@ -1,0 +1,114 @@
+/**
+ * ANVIL LOADING
+ * "The Quench" - Cooling down while processing.
+ */
+
+#nvl-loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  display: none; // Sembunyi secara default
+  pointer-events: all; // Mencegah klik ke elemen di bawahnya saat loading
+
+  &.is-active {
+    display: block;
+  }
+
+  .nvl-loader-content {
+    width: 100%;
+    height: 100%;
+    background: rgba($nvl-dark, 0.8); // Pakai overlay gelap Anvil
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    color: $nvl-primary; // Warna kuning Forge
+    font-family: inherit;
+
+    p {
+      margin: 0;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+  }
+}
+
+.nvl-spinner {
+  display: inline-block; // WAJIB: Agar animasi rotate bisa jalan
+  width: 2rem;
+  height: 2rem;
+  vertical-align: middle; 
+  border: 3px solid rgba($nvl-dark, 0.1); // Border dasar yang transparan
+  border-top-color: $nvl-primary; // Warna putaran default
+  border-radius: 50%;
+  animation: nvl-spin 0.75s linear infinite;
+
+  // Ukuran Small
+  &.nvl-spinner-sm {
+    width: 1rem;
+    height: 1rem;
+    border-width: 2px;
+  }
+
+  // Ukuran Large
+  &.nvl-spinner-lg {
+    width: 3.5rem;
+    height: 3.5rem;
+    border-width: 4px;
+  }
+}
+
+// Loop Warna Otomatis untuk Spinner (.nvl-spinner-white, .nvl-spinner-success, dsb)
+@each $name, $color in $utilities-colors {
+  .nvl-spinner-#{$name} {
+    border-top-color: $color !important;
+  }
+}
+
+// Definisi Animasi Putar
+@keyframes nvl-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+// --- B. SKELETON (The Ghost) ---
+.nvl-skeleton {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e8e8e8 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: nvl-skeleton-wave 1.5s infinite linear;
+  border-radius: 4px;
+  display: block;
+  
+  &.nvl-skeleton-text { height: 0.8rem; margin-bottom: 0.5rem; width: 100%; }
+  &.nvl-skeleton-title { height: 1.5rem; margin-bottom: 1rem; width: 60%; }
+  &.nvl-skeleton-rect { height: 150px; width: 100%; }
+  &.nvl-skeleton-circle { height: 50px; width: 50px; border-radius: 50%; }
+}
+
+@keyframes nvl-skeleton-wave {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+// --- C. FULL PAGE LOADING ---
+.nvl-loading-page {
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  transition: opacity 0.4s ease, visibility 0.4s;
+
+  &.is-hidden {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
