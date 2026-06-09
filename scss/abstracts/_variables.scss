@@ -1,0 +1,55 @@
+/**
+ * ANVIL SCSS LIBRARY v1.0.0
+ * -----------------------------------------
+ * Hand-forged by Rizky Afdhillah
+ * Location: GOVINDO Utama, Banjarmasin
+ * Prefix: .nvl-
+ * -----------------------------------------
+ */
+// 1. COLORS (The Ores)
+// $nvl-primary:    #4D485B !default; // Govindo Deep Purple / Vintage Grape
+// $nvl-primary:    #2191FB !default; // Dodger Blue
+$nvl-primary: #eb8310 !default; // Dafa Colour
+$nvl-secondary: #928c6f !default; // Palm Leaf
+$nvl-success: #53a548 !default; // Medium Jungle
+$nvl-warning: #ffa400 !default; // Orange
+$nvl-danger: #f03a47 !default; // Strawberry Red
+$nvl-info: #87bcde !default; // Sky Reflection
+$nvl-accent: #ff6542 !default; // Untuk Alert atau Error : Rust Brown
+
+$nvl-dark: #2d2a36 !default; // Lebih gelap dari primary buat teks
+$nvl-light: #ebebf1 !default; // Background abu sangat muda
+$nvl-white: #ffffff !default;
+
+// 2. TYPOGRAPHY
+$nvl-font-main: "Montserrat", sans-serif !default;
+$nvl-font-size: 16px !default;
+
+// 3. BREAKPOINTS & CONTAINERS
+$nvl-bp-sm: 576px !default; // Mobile Landscape
+$nvl-bp-md: 768px !default; // Tablet
+$nvl-bp-lg: 1024px !default; // Laptop / Small Desktop
+$nvl-bp-xl: 1200px !default; // Large Desktop (Standard Container)
+
+// 4. SPACING & RADIUS (The Proportions)
+$nvl-spacer: 1rem !default; // 16px (Standard gap)
+$nvl-spacer-sm: 0.5rem !default; // 8px
+$nvl-spacer-lg: 2rem !default; // 32px
+$nvl-spacer-xl: 3rem !default; // 48px
+
+$nvl-radius: 0.2rem !default; // 8px (Modern Rounded)
+$nvl-radius-round: 50% !default; // Untuk Circle Avatar
+
+$nvl-container-max: 1140px !default; // Lebar konten di dalam layar XL
+
+// 5. FUNCTIONS (The Magic Forge)
+// Fungsi untuk menentukan apakah warna teks harus terang atau gelap
+// berdasarkan tingkat kecerahan background-nya.
+
+@function nvl-contrast($color) {
+  @if (lightness($color) > 50) {
+    @return $nvl-dark; // Jika BG terang, teks jadi gelap
+  } @else {
+    @return $nvl-white; // Jika BG gelap, teks jadi putih
+  }
+}

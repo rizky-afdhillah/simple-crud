@@ -1,0 +1,54 @@
+/**
+ * ANVIL TABLES
+ * "The Blueprint" - Organizing raw data.
+ */
+
+.nvl-table-container {
+  width: 100%;
+  margin-bottom: $nvl-spacer;
+  border-radius: 8px;
+  overflow: hidden; // Biar border-radius kelihatan di table
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.nvl-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fff;
+  font-size: 0.95rem;
+
+  th, td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid rgba($nvl-dark, 0.05);
+  }
+
+  thead th {
+    background-color: #f8f9fa;
+    color: $nvl-dark;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 0.5px;
+    cursor: pointer; // Indikasi bisa di-sort
+    
+    &:hover { background-color: rgba($nvl-primary, 0.05); }
+  }
+
+  // Zebra Striping
+  tbody tr:nth-child(even) {
+    background-color: rgba($nvl-dark, 0.02);
+  }
+
+  tbody tr:hover {
+    background-color: rgba($nvl-primary, 0.03);
+  }
+}
+
+// --- RESPONSIVE TABLE (Scroll Mode) ---
+.nvl-table-responsive {
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}

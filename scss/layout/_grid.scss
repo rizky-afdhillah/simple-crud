@@ -1,0 +1,57 @@
+/**
+ * ANVIL GRID SYSTEM
+ * "The Scaffolding" - Organising the forge layout.
+ */
+
+// 1. Container
+.nvl-container {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+  max-width: $nvl-container-max;
+}
+
+// 2. Row
+.nvl-row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+}
+
+// 3. Columns Base
+[class*="nvl-col-"] {
+  position: relative;
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+// 4. Mobile First Columns (Default auto-width)
+.nvl-col {
+  flex-basis: 0;
+  flex-grow: 1;
+  max-width: 100%;
+}
+
+// 5. Automated Grid Forge (The Hammer Loop)
+// Kita buat fungsi (mixin) biar kodenya efisien
+@mixin make-nvl-grid($suffix: "") {
+  $prefix: if($suffix == "", "", "-#{$suffix}");
+  
+  @for $i from 1 through 12 {
+    .nvl-col#{$prefix}-#{$i} {
+      flex: 0 0 calc(100% / 12 * #{$i});
+      max-width: calc(100% / 12 * #{$i});
+    }
+  }
+}
+
+// Eksekusi semua breakpoint yang kamu punya:
+@include make-nvl-grid();               // Base (Mobile)
+@include nvl-mq-up(sm) { @include make-nvl-grid("sm"); } // Small
+@include nvl-mq-up(md) { @include make-nvl-grid("md"); } // Medium
+@include nvl-mq-up(lg) { @include make-nvl-grid("lg"); } // Large
+@include nvl-mq-up(xl) { @include make-nvl-grid("xl"); } // Extra Large

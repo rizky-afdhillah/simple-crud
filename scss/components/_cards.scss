@@ -1,0 +1,57 @@
+/**
+ * ANVIL CARDS
+ * "Plates" - The container for content foraged in the project.
+ */
+
+.nvl-card {
+  background-color: $nvl-white;
+  border-radius: $nvl-radius;
+  border: 1px solid rgba($nvl-dark, 0.1); // Border tipis transparent
+  overflow: hidden;
+  @include nvl-transition; // Hammer transition
+  margin-bottom: $nvl-spacer;
+  display: flex;
+  flex-direction: column;
+
+  // Efek melayang saat hover
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba($nvl-dark, 0.1);
+  }
+
+  // 1. Card Image
+  &-img {
+    width: 100%;
+    height: 200px; // Default height, bisa dioverride
+    object-fit: cover;
+  }
+
+  // 2. Card Body (Isi teks)
+  &-body {
+    padding: $nvl-spacer;
+    flex: 1;
+  }
+
+  // 3. Card Title
+  &-title {
+    margin-bottom: $nvl-spacer-sm;
+    color: $nvl-primary;
+    font-size: 1.25rem;
+    font-weight: 700;
+  }
+
+  // 4. Card Text
+  &-text {
+    font-size: 0.95rem;
+    color: lighten($nvl-dark, 15%);
+    line-height: 1.6;
+    margin-bottom: $nvl-spacer;
+  }
+
+  // 5. Card Footer
+  &-footer {
+    padding: $nvl-spacer-sm $nvl-spacer;
+    background-color: $nvl-light;
+    border-top: 1px solid rgba($nvl-dark, 0.05);
+  }
+}

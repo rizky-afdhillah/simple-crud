@@ -1,0 +1,42 @@
+/**
+ * ANVIL RESET
+ * "The Cleaning" - Clearing the workspace for a perfect forge.
+ */
+
+*, *::before, *::after {
+  box-sizing: border-box; // Wajib: Agar padding tidak nambah lebar elemen
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: $nvl-font-size; // Mengambil 16px dari variables
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: $nvl-font-main;
+  line-height: 1.5;
+  color: $nvl-dark;
+  background-color: $nvl-white;
+  -webkit-font-smoothing: antialiased; // Biar font di Mac makin tajam
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%; // Biar gambar tidak "pecah" keluar container
+}
+
+input, button, textarea, select {
+  font: inherit; // Agar form ikut font Montserrat kita
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul, ol {
+  list-style: none; // Matikan bullet points default
+}
