@@ -84,7 +84,7 @@
   font-weight: 500;
 }
 
-.is-invalid~.nvl-invalid-feedback {
+.is-invalid ~ .nvl-invalid-feedback {
   display: block;
 }
 .nvl-form-control.is-invalid {

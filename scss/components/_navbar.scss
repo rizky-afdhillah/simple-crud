@@ -42,7 +42,6 @@
     font-weight: 500;
     font-size: 0.95rem;
     transition: color 0.3s;
-<<<<<<< HEAD
     &:hover {
       color: $nvl-primary;
       text-decoration: none;
@@ -51,11 +50,6 @@
       color: $nvl-primary;
     }
   }
-=======
-    &:hover { color: $nvl-primary; text-decoration: none; }
-  }
-
->>>>>>> a4072cd983b289ffe41b0c21180963848299e333
   @include nvl-mq-up(lg) {
     display: flex;
   }
@@ -64,7 +58,6 @@
 // --- VARIANT 2: LOGO CENTER ---
 .nvl-nav-center {
   flex-direction: column;
-<<<<<<< HEAD
   .nvl-nav-brand {
     margin-bottom: 1rem;
   }
@@ -72,10 +65,6 @@
     justify-content: center;
     width: 100%;
   }
-=======
-  .nvl-nav-brand { margin-bottom: 1rem; }
-  .nvl-nav-links { justify-content: center; width: 100%; }
->>>>>>> a4072cd983b289ffe41b0c21180963848299e333
 }
 
 // --- VARIANT 3 & MOBILE: BURGER BUTTON ---
@@ -98,17 +87,12 @@
 
   @include nvl-mq-up(lg) {
     // Hidden di desktop untuk model 1 & 2, tapi muncul di model 3
-<<<<<<< HEAD
     &.nvl-force-burger {
       display: flex;
     }
     &:not(.nvl-force-burger) {
       display: none;
     }
-=======
-    &.nvl-force-burger { display: flex; }
-    &:not(.nvl-force-burger) { display: none; }
->>>>>>> a4072cd983b289ffe41b0c21180963848299e333
   }
 }
 
@@ -156,8 +140,4 @@
     opacity: 1;
     visibility: visible;
   }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> a4072cd983b289ffe41b0c21180963848299e333
