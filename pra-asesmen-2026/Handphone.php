@@ -1,8 +1,8 @@
 <?php
-    class Handphone {
-        public $merk;
-        public $ram;
-        public $kapasitasBaterai;
-        public $sistemOperasi;   
-    }
-?>
+class Handphone
+{
+    public $merk;
+    public $ram;
+    public $kapasitasBaterai;
+    public $sistemOperasi;
+}
